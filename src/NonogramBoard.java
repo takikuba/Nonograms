@@ -29,6 +29,7 @@ public class NonogramBoard {
             for(int j = 0; j < 8; j++){
                 JButton button;
                 String text = String.valueOf(nonogram.numbers[i][j]);
+                System.out.println(nonogram.numbers[i][j]);
                 button = new JButton(!text.equals("0") ? text : "");
                 button.setFont(new Font("Arial", Font.PLAIN, 15));
                 button.setMargin(new Insets(0,0,0,0));

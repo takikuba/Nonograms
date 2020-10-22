@@ -1,53 +1,65 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.MouseInputAdapter;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 class MenuScreen extends JPanel {
     JButton buttonStartGame;
     JButton buttonCreateNew;
     JButton buttonExit;
     SceneManager sceneManager;
+    Image image;
 
-    public MenuScreen(SceneManager sceneManager){
+    public MenuScreen(SceneManager sceneManager) {
 
-        setBounds(0,0,300, 400);
-        setBackground(Color.GRAY);
+        image = new ImageIcon("res\\menuBackground.png").getImage();
+
+        sceneManager.getScreen().setVisible(false);
+
+        setBounds(0, 0, 300, 400);
         setBorder(new EmptyBorder(10, 10, 10, 10));
         setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.anchor = GridBagConstraints.NORTH;
-
-        add(new JLabel("<html><h1><strong><i>Nonogramy</i></strong></h1><hr></html>"), gbc);
-
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        buttonStartGame = new JButton("New Game");
-        buttonStartGame.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonStartGame = new MyButton("New Game");
         buttonStartGame.addActionListener((e) -> {
             sceneManager.setNewComponent(new GameNewGame(sceneManager));
         });
 
-        buttonCreateNew = new JButton("Create");
-        buttonCreateNew.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonCreateNew = new MyButton("Create");
         buttonCreateNew.addActionListener((e) -> {
             sceneManager.setNewComponent(new GameCreateNew(sceneManager));
         });
 
-        buttonExit = new JButton("Exit");
-        buttonExit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonExit = new MyButton("Exit");
         buttonExit.addActionListener((e) -> System.exit(0));
 
         JPanel buttons = new JPanel(new GridBagLayout());
-        buttons.setBackground(this.getBackground());
         buttons.add(buttonStartGame, gbc);
         buttons.add(buttonCreateNew, gbc);
-        buttons.add(buttonExit);
+        buttons.add(buttonExit, gbc);
+
 
         gbc.weighty = 1;
         add(buttons, gbc);
+        sceneManager.getScreen().getContentPane().add(this);
+        sceneManager.getScreen().repaint();
+//        buttons.setBackground(new Color(0,0,0,0));
+        sceneManager.getScreen().setVisible(true);
+        sceneManager.getScreen().revalidate();
     }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, -10, -35, null);
+    }
 }
+

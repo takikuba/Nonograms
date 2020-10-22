@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
 
 public class Screen extends JFrame {
 
@@ -12,12 +10,13 @@ public class Screen extends JFrame {
         SceneManager sceneManager = new SceneManager(this);
         setTitle("Nonogramy by. Jakub Klimek");
 
-        getContentPane().add(new MenuScreen(sceneManager));
-
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
         setLayout(null);
         setSize(300, 400);
-        setVisible(true);
+
+        getContentPane().add(new MenuScreen(sceneManager));
+
     }
 }

@@ -1,7 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameCreateNew extends JPanel {
 
@@ -15,7 +12,7 @@ public class GameCreateNew extends JPanel {
 
         nonogramBoard = new NonogramBoard(this, false);
 
-        JButton buttonCheck = new JButton("Create!");
+        JButton buttonCheck = new MyButton("Create!", 5);
         buttonCheck.setBounds(180, 300, 100, 20);
         buttonCheck.addActionListener((e) -> {
             createNew();
@@ -24,6 +21,8 @@ public class GameCreateNew extends JPanel {
     }
 
     private void createNew() {
+
+
     }
 
 }

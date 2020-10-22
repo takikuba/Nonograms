@@ -16,7 +16,7 @@ public class GameNewGame extends JPanel {
 
         nonogramBoard = new NonogramBoard(this, true);
 
-        JButton buttonCheck = new JButton("Check!");
+        JButton buttonCheck = new MyButton("Check", 19);
         buttonCheck.setBounds(180, 300, 100, 20);
         buttonCheck.addActionListener((e) -> {
             endGame(checkCorrect());
@@ -47,7 +47,6 @@ public class GameNewGame extends JPanel {
                 }
             }
         }
-        System.out.println(isCorrect);
         return isCorrect;
     }
 }
