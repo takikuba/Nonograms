@@ -1,9 +1,9 @@
+package game;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.geom.RoundRectangle2D;
-import java.net.URL;
 
 public class MyButton extends JButton {
 
@@ -20,6 +20,7 @@ public class MyButton extends JButton {
         setFont(new Font("Hobo Std", Font.BOLD, size));
         setter();
     }
+
     private void setter(){
         setForeground(Color.DARK_GRAY);
         setBorderPainted(false);
@@ -54,6 +55,17 @@ public class MyButton extends JButton {
             }
         }
     }
+}
 
-
+class ButtonBack extends JButton{
+    public ButtonBack(SceneManager sceneManager){
+        super(new ImageIcon("res\\buttonBack.png"));
+        this.setBounds(10, 10, 30, 30);
+        setBorderPainted(false);
+        setBorder(null);
+        setContentAreaFilled(false);
+        setFocusPainted(false);
+        setOpaque(false);
+        this.addActionListener((e) ->sceneManager.setNewComponent(new MenuScreen(sceneManager)));
+    }
 }

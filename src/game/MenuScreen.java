@@ -1,22 +1,18 @@
+package game;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.MouseInputAdapter;
-import javax.swing.plaf.FontUIResource;
 import java.awt.*;
-import java.awt.event.MouseEvent;
 
 class MenuScreen extends JPanel {
-    JButton buttonStartGame;
-    JButton buttonCreateNew;
-    JButton buttonExit;
-    SceneManager sceneManager;
-    Image image;
+    private JButton buttonStartGame;
+    private JButton buttonCreateNew;
+    private JButton buttonExit;
+    private Image image;
 
     public MenuScreen(SceneManager sceneManager) {
 
         image = new ImageIcon("res\\menuBackground.png").getImage();
-
-        sceneManager.getScreen().setVisible(false);
 
         setBounds(0, 0, 300, 400);
         setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -29,14 +25,10 @@ class MenuScreen extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         buttonStartGame = new MyButton("New Game");
-        buttonStartGame.addActionListener((e) -> {
-            sceneManager.setNewComponent(new GameNewGame(sceneManager));
-        });
+        buttonStartGame.addActionListener((e) -> sceneManager.setNewComponent(new GameNewGame(sceneManager)));
 
         buttonCreateNew = new MyButton("Create");
-        buttonCreateNew.addActionListener((e) -> {
-            sceneManager.setNewComponent(new GameCreateNew(sceneManager));
-        });
+        buttonCreateNew.addActionListener((e) -> sceneManager.setNewComponent(new GameCreateNew(sceneManager)));
 
         buttonExit = new MyButton("Exit");
         buttonExit.addActionListener((e) -> System.exit(0));
@@ -45,13 +37,12 @@ class MenuScreen extends JPanel {
         buttons.add(buttonStartGame, gbc);
         buttons.add(buttonCreateNew, gbc);
         buttons.add(buttonExit, gbc);
-
+        buttons.setOpaque(false);
 
         gbc.weighty = 1;
         add(buttons, gbc);
         sceneManager.getScreen().getContentPane().add(this);
         sceneManager.getScreen().repaint();
-//        buttons.setBackground(new Color(0,0,0,0));
         sceneManager.getScreen().setVisible(true);
         sceneManager.getScreen().revalidate();
     }
@@ -62,4 +53,3 @@ class MenuScreen extends JPanel {
         g.drawImage(image, -10, -35, null);
     }
 }
-

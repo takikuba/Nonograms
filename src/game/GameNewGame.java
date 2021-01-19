@@ -1,3 +1,5 @@
+package game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,8 +9,10 @@ public class GameNewGame extends JPanel {
     NonogramBoard nonogramBoard;
     long timeStart = System.nanoTime();
     long timeEnd;
+    Image image;
 
     public GameNewGame(SceneManager sceneManager){
+        image = new ImageIcon("res\\menuBackground.png").getImage();
         setSize(300, 400);
         setLayout(null);
         setBackground(Color.CYAN);
@@ -17,11 +21,12 @@ public class GameNewGame extends JPanel {
         nonogramBoard = new NonogramBoard(this, true);
 
         JButton buttonCheck = new MyButton("Check", 19);
-        buttonCheck.setBounds(180, 300, 100, 20);
-        buttonCheck.addActionListener((e) -> {
-            endGame(checkCorrect());
-        });
+        buttonCheck.setBounds(100, 320, 100, 20);
+        buttonCheck.addActionListener((e) -> endGame(checkCorrect()));
         add(buttonCheck);
+
+        JButton buttonBack = new ButtonBack(sceneManager);
+        add(buttonBack);
 
     }
 
@@ -48,5 +53,10 @@ public class GameNewGame extends JPanel {
             }
         }
         return isCorrect;
+    }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, -10, -35, null);
     }
 }

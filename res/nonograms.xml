@@ -1,14 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <nonograms>
-<!--<?xml version="1.0" encoding="UTF-8" ?>-->
-<nonogram>
-    <id>0</id>
-    <numbers>1111111111111111111000001110000011100000111000001110000011100000</numbers>
-    <buttons>1111100000000000000000000</buttons>
-</nonogram>
-<nonogram>
-    <id>1</id>
-    <numbers>1111111111111111111000001110000011100000111000001110000011100000</numbers>
-    <buttons>1111100000000000000000000</buttons>
-</nonogram>
-
+        
+    <nonogram>
+                
+        <buttons>1111100000000000000000000</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>1000010000100001000010000</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>1000001000001000001000001</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0000100010001000100010000</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0001000000000010010000010</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>1111110001100011000111111</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>1010111111011100111011011</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0000000000000000000000000</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0000001010000001000101110</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0011000110001001111101110</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>0101001010011100101001010</buttons>
+            
+    </nonogram>
+        
+    <nonogram>
+                
+        <buttons>1000101100001000011010001</buttons>
+            
+    </nonogram>
+    
+    <nonogram>
+        <buttons>1110001110001110001100001</buttons>
+    </nonogram>
 </nonograms>

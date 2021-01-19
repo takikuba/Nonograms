@@ -1,3 +1,5 @@
+package game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,10 +11,17 @@ public class NonogramBoard {
     JButton[][] gridGame = new JButton[5][5];
     JPanel panelBoard;
     boolean makeNumber;
+    int boardX;
+    int boardY;
 
     public NonogramBoard(JPanel panelBoard, boolean makeNumber){
         if(makeNumber){
             nonogram = new DrawNonogram();
+            boardX = 120;
+            boardY = 200;
+        } else {
+            boardX = 100;
+            boardY = 130;
         }
         this.panelBoard = panelBoard;
         this.makeNumber = makeNumber;
@@ -23,13 +32,12 @@ public class NonogramBoard {
         Panel panel = new Panel();
         panel.setBackground(Color.GRAY);
         panel.setLayout(new GridLayout(8, 8));
-        panel.setBounds(40, 40, 160, 160);
+        panel.setBounds(boardX-60, boardY-60, 160, 160);
         gridNumber = new ArrayList<>();
         for( int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
                 JButton button;
                 String text = String.valueOf(nonogram.numbers[i][j]);
-                System.out.println(nonogram.numbers[i][j]);
                 button = new JButton(!text.equals("0") ? text : "");
                 button.setFont(new Font("Arial", Font.PLAIN, 15));
                 button.setMargin(new Insets(0,0,0,0));
@@ -49,15 +57,12 @@ public class NonogramBoard {
         Panel panel = new Panel();
         panel.setBackground(Color.GRAY);
         panel.setLayout(new GridLayout(5, 5));
-        panel.setBounds(100, 100,100, 100);
+        panel.setBounds(boardX, boardY,100, 100);
         for( int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 JButton button = new JButton();
                 button.setBackground(Color.WHITE);
-                button.addActionListener((e) ->{
-                    if( button.getBackground() == Color.BLACK)  button.setBackground(Color.WHITE);
-                    else button.setBackground(Color.BLACK);
-                });
+                button.addActionListener((e) -> colorButton(button));
                 gridGame[i][j] = button;
             }
         }
@@ -69,6 +74,11 @@ public class NonogramBoard {
         }
         panelBoard.add(panel);
         if(makeNumber) makeNumberCanvas();
+    }
+
+    public void colorButton(JButton button){
+        if( button.getBackground() == Color.BLACK)  button.setBackground(Color.WHITE);
+        else button.setBackground(Color.BLACK);
     }
 
 }
